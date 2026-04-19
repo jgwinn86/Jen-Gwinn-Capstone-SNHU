@@ -1,0 +1,41 @@
+/* filter alignment*/
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+/* field size */
+.filter-row input,
+.filter-row select {
+  padding: 6px;
+  height: 32px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Label spacing */
+.filter-row label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 4px;
+  white-space: nowrap;
+}
+
+/* Button row layout */
+.filter-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Button styling */
+.filter-actions button {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+  border-radius: 4px;
+  cursor: pointer;
+}

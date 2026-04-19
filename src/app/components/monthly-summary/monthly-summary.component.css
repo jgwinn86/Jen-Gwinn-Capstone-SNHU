@@ -1,0 +1,24 @@
+/* Table layout */
+.monthly-summary {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+}
+
+/* Header cells */
+.monthly-summary thead th {
+  text-align: center;          
+  padding: 12px;
+  background: #f2f2f2;
+  border: 1px solid #ccc;
+}
+
+/* Data cells */
+.monthly-summary tbody td {
+  text-align: center;          
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+

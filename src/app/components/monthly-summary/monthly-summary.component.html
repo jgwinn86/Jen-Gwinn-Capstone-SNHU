@@ -1,0 +1,40 @@
+<div class="filters">
+  <select [(ngModel)]="selectedFund" (change)="applyFilters()">
+    <option [ngValue]="null">All Funds</option>
+    <option value="General Fund">General Fund</option>
+    <option value="Branch">Branch</option>
+    <option value="Enterprise">Enterprise</option>
+  </select>
+
+  <input
+    type="text"
+    placeholder="Department"
+    [(ngModel)]="selectedDepartment"
+    (input)="applyFilters()"
+  />
+
+  <input type="date" [(ngModel)]="startDate" (change)="applyFilters()" />
+  <input type="date" [(ngModel)]="endDate" (change)="applyFilters()" />
+</div>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Month End</th>
+        <th>Total Bids</th>
+        <th>Total Volume</th>
+        <th>Average Bid</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let m of monthlySummaries">
+        <td>{{ m.monthEnd | date: 'MM/dd/yyyy' }}</td>
+        <td>{{ m.bidCount }}</td>
+        <td>{{ m.totalVolume | currency }}</td>
+        <td>{{ m.avgBid | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

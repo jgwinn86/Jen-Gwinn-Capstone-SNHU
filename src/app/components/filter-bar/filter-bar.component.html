@@ -1,0 +1,51 @@
+<div class="filter-bar-container">
+
+  <!-- Fund -->
+  <div class="filter-group">
+    <label for="fund">Fund</label>
+    <select id="fund" [(ngModel)]="fund">
+      <option value="">All</option>
+      <option *ngFor="let f of fundOptions" [value]="f">{{ f }}</option>
+    </select>
+  </div>
+
+  <!-- Department -->
+  <div class="filter-group">
+    <label for="department">Department</label>
+    <select id="department" [(ngModel)]="department">
+      <option value="">All</option>
+      <option *ngFor="let d of departments" [value]="d">{{ d }}</option>
+    </select>
+  </div>
+
+  <!-- Start Date -->
+  <div class="filter-group">
+    <label for="startDate">Start Date</label>
+    <input id="startDate" type="date" [(ngModel)]="startDate" (change)="validateDateRange()">
+  </div>
+
+  <!-- End Date -->
+  <div class="filter-group">
+    <label for="endDate">End Date</label>
+    <input id="endDate" type="date" [(ngModel)]="endDate" (change)="validateDateRange()">
+  </div>
+
+  <!-- Min Amount -->
+  <div class="filter-group">
+    <label for="minAmount">Min Amount</label>
+    <input id="minAmount" type="number" [(ngModel)]="minAmount" (change)="validateAmountRange()">
+  </div>
+
+  <!-- Max Amount -->
+  <div class="filter-group">
+    <label for="maxAmount">Max Amount</label>
+    <input id="maxAmount" type="number" [(ngModel)]="maxAmount" (change)="validateAmountRange()">
+  </div>
+
+  <!-- Buttons -->
+  <div class="filter-buttons">
+    <button (click)="applyFilters()">Apply</button>
+    <button (click)="clearFilters()">Clear</button>
+  </div>
+
+</div>

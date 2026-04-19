@@ -1,0 +1,71 @@
+<app-header></app-header>
+
+<!--Title-->
+<h2 class="detail-title">Bid Detail</h2>
+<!--Back button and search-->
+<div class="utility-row">
+  <button class="back-button" (click)="goBack()">Back to Dashboard</button>
+
+  <div class="search-container">
+    <input
+      type="text"
+      placeholder="Search bids..."
+      [(ngModel)]="searchText"
+      (input)="applyFilters()"
+    />
+  </div>
+</div>
+
+<!--Filter Bar-->
+<div class="filter-bar-wrapper">
+  <app-filter-bar
+    [bids]="bids"
+    [funds]="funds"
+    (filtersChanged)="onFiltersChanged($event)">
+  </app-filter-bar>
+</div>
+
+<!--selection summary-->
+<div class="selection-summary">
+
+  <div class="kpi-card">
+    <div class="kpi-label">Total Bid $</div>
+    <div class="kpi-value">{{ totalBidAmount | currency }}</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">Bid Count</div>
+    <div class="kpi-value">{{ bidCount }}</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">Avg Bid</div>
+    <div class="kpi-value">{{ avgBidAmount | currency }}</div>
+  </div>
+
+</div>
+
+<!--bid details-->
+<table class="bid-detail-table">
+  <thead>
+    <tr>
+      <th>Article ID</th>
+      <th>Close Date</th>
+      <th>Winning Bid</th>
+      <th>Department</th>
+      <th>Fund</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let b of filteredBids">
+      <td>{{ b.ArticleID }}</td>
+      <td>{{ b.CloseDate | date:'MM/dd/yyyy' }}</td>
+      <td>{{ b.WinningBid | currency }}</td>
+      <td>{{ b.Department }}</td>
+      <td>{{ b.Fund }}</td>
+      <td>{{ b.ArticleTitle }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,75 @@
+<app-header></app-header>
+
+<!-- Page title -->
+<h1 class="page-title">Auction Dashboard</h1>
+
+<!-- Top bar layout -->
+<div class="dashboard-top-wrapper">
+  <div class="nav-button-wrapper">
+    <button type="button" class="nav-button" (click)="goToBidDetail()">
+      View Bid Details
+    </button>
+  </div>
+
+  <div class="filter-bar-wrapper">
+    <!-- Filter bar -->
+    <app-filter-bar
+      [funds]="funds" 
+      [bids]="bids"
+      (filtersChanged)="onFiltersChanged($event)">
+    </app-filter-bar>
+  </div>
+</div>
+
+<!-- KPI summary -->
+<div class="kpi-row">
+  <div class="kpi-card">
+    <h3>Total Bids</h3>
+    <p>{{ kpis.BidCount }}</p>
+  </div>
+
+  <div class="kpi-card">
+    <h3>Total Volume</h3>
+    <p>{{ kpis.TotalBidVolume | currency }}</p>
+  </div>
+
+  <div class="kpi-card">
+    <h3>Average Bid</h3>
+    <p>{{ kpis.AvgBidAmount | currency }}</p>
+  </div>
+</div>
+
+<!-- Table and graphs layout -->
+<div class="content-row">
+
+  <!-- Monthly summary table -->
+  <div class="left-column">
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Month End</th>
+            <th>Total Bids</th>
+            <th>Total Volume</th>
+            <th>Average Bid</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let m of monthlySummaries">
+            <td>{{ m.monthEnd | date: 'MM/dd/yyyy' }}</td>
+            <td>{{ m.bidCount }}</td>
+            <td>{{ m.totalVolume | currency }}</td>
+            <td>{{ m.avgBid | currency }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Trend graphs -->
+  <div class="right-column">
+    <app-trend-graphs [bids]="filteredBids"></app-trend-graphs>
+  </div>
+
+</div>
