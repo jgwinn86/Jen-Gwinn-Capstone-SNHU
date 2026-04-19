@@ -29,6 +29,24 @@ For this capstone, I am highlighting my skills in software engineering and desig
 - [Enhancement Three Narrative (DOCX)](Gwinn%20CS499%20Artifact%203%20Narrative.docx)
 
 ---
+## Project Source Code
+
+### Frontend (Angular)
+- [src/](src/)
+- [src/app/](src/app/)
+- [src/assets/](src/assets/)
+- [public/](public/)
+
+### Backend (Node/Express)
+- [backend/server.js](backend/server.js)
+- [backend/routes/](backend/routes/)
+- [backend/models/](backend/models/)
+- [backend/controllers/](backend/controllers/)
+- [backend/config/](backend/config/)   <!-- if exists -->
+- [backend/package.json](backend/package.json)
+
+### Database
+- [database/](database/)
 
 
 
